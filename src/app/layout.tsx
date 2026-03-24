@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: '/logo.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/logo-bg.png',
+    apple: '/logo-bg.png',
   },
 }
 

@@ -14,7 +14,12 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-50 border-b border-white/[0.06] glass" style={{ borderRadius: 0 }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-8 flex items-center justify-between h-14">
-        <img src="/logo.png" alt="AthleteShare" className="h-9 w-auto" />
+        <div className="flex items-center gap-2">
+          <img src="/logo.png" alt="AthleteShare" className="h-8 w-auto" />
+          <span className="text-sm font-black tracking-widest text-white" style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.12em' }}>
+            ATHLETESHARE
+          </span>
+        </div>
         <div className="flex items-center gap-6">
           {NAV_LINKS.map(({ label, id }) => (
             <button
