@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <header className="border-b border-navy-800/50 bg-navy-950/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="AthleteShare" className="h-8 w-auto" />
+            <img src="/athleteshare-logo.png" alt="AthleteShare" className="h-8 w-auto" />
             <span className="text-sm font-black tracking-widest text-white" style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.12em' }}>ATHLETESHARE</span>
           </Link>
           <Link href="/" className="text-navy-300 hover:text-white text-sm transition-colors">

@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: '/logo-bg.png',
-    apple: '/logo-bg.png',
+    icon: '/athleteshare-logo-bg.png',
+    apple: '/athleteshare-logo-bg.png',
   },
 }
 
