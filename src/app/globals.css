@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-display: 'Bebas Neue', sans-serif;
+  --gold: #C9990A;
+  --gold-light: #E2B93B;
+  --bg: #07090F;
+  --surface: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.07);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: #e2e8f0;
+  font-family: var(--font-body);
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #1e2d40; border-radius: 4px; }
+::selection { background: rgba(201, 153, 10, 0.2); }
+
+/* Subtle top glow */
+.hero-glow {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(30, 60, 100, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Divider */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* Price flash */
+@keyframes flash-up {
+  0%, 100% { color: #94a3b8; }
+  40% { color: #4ade80; }
+}
+@keyframes flash-down {
+  0%, 100% { color: #94a3b8; }
+  40% { color: #f87171; }
+}
+.flash-up { animation: flash-up 0.6s ease; }
+.flash-down { animation: flash-down 0.6s ease; }
+
+/* Text gradient — used for display headings */
+.text-gradient {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Stat card */
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* Glass surface */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Live indicator dot */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+.live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: live-pulse 1.6s ease-in-out infinite;
+}
+
+/* Athlete card */
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.shimmer-btn {
+  background: var(--gold-light);
+}
+
+/* Ticker */
+.ticker-wrapper {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 28s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  white-space: nowrap;
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+
+.ticker-name {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ticker-up {
+  color: #4ade80;
+  font-weight: 500;
+}
+
+.ticker-down {
+  color: #f87171;
+  font-weight: 500;
+}
+
+.ticker-sep {
+  color: rgba(255, 255, 255, 0.15);
+  padding: 0 12px;
+}
