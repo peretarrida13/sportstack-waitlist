@@ -13,8 +13,8 @@ export default function TermsPage() {
       {/* Nav */}
       <header className="border-b border-navy-800/50 bg-navy-950/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-gold-300 font-black tracking-widest text-xl" style={{ fontFamily: 'var(--font-display)' }}>
-            ATHLETESHARE
+          <Link href="/">
+            <img src="/logo.png" alt="AthleteShare" className="h-8 w-auto" />
           </Link>
           <Link href="/" className="text-navy-300 hover:text-white text-sm transition-colors">
             ← Back to home

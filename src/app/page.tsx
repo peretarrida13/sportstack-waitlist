@@ -385,12 +385,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <span
-                className="text-lg font-black tracking-widest text-white block mb-1"
-                style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.12em' }}
-              >
-                ATHLETESHARE
-              </span>
+              <img src="/logo.png" alt="AthleteShare" className="h-8 w-auto mb-1" />
               <p className="text-[11px] font-mono text-white/25">© {new Date().getFullYear()} AthleteShare OÜ · Registered in Estonia</p>
             </div>
             <div className="flex items-center gap-6 text-[11px] font-mono text-white/30">
