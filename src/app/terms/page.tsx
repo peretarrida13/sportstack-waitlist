@@ -120,8 +120,8 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-white mb-3">10. Contact</h2>
             <p>
               For questions about these terms, contact us at{' '}
-              <a href="mailto:legal@athleteshare.io" className="text-gold-300 hover:text-gold-200 underline">
-                legal@athleteshare.io
+              <a href="mailto:legal@athleteshare.app" className="text-gold-300 hover:text-gold-200 underline">
+                legal@athleteshare.app
               </a>.
             </p>
           </section>

@@ -27,6 +27,11 @@ async function getCount(): Promise<number> {
 
 const FAQ_ITEMS = [
   {
+    question: 'How exactly do athlete share prices move?',
+    answer:
+      "Every share price updates after each match using a 4-layer algorithm. Layer 1 — Raw stats: goals score 12 points, assists 8, match rating × 4, saves 3. Yellow card = −4, red card = −12. Layer 2 — We normalise to a 0–100 performance score by position. Layer 3 — A competition multiplier is applied: Champions League Final × 2.0, La Liga / Premier League × 1.4, friendly × 0.3. Layer 4 — The final price delta is capped at +40% or −25% per match. Example: Mbappé scores 2 goals and 1 assist in a UCL match → share moves from €142 to €181. All data comes from official verified match statistics. No randomness. No house edge.",
+  },
+  {
     question: 'Is this gambling?',
     answer:
       'No. AthleteShare is a regulated financial trading platform where shares are priced by verified athlete performance data. You buy and sell shares like a stock market — not bets. We are pursuing a full EU financial licence with passporting rights across all 27 member states.',
@@ -272,6 +277,28 @@ export default async function Home() {
         </div>
       </div>
 
+      {/* ── Founder section ────────────────────────────────────────── */}
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 py-24">
+        <div className="max-w-2xl">
+          <p className="text-xs font-mono uppercase tracking-widest mb-4" style={{ color: 'var(--gold)' }}>
+            Built by a founder who gets it
+          </p>
+          <h2
+            className="text-4xl sm:text-5xl text-white leading-none mb-6"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            BUILT BY A FOUNDER<br />WHO GETS IT
+          </h2>
+          <p className="text-white/40 text-sm leading-relaxed">
+            Pere Tarrida is a 24-year-old full-stack engineer based in Barcelona.
+            He built the entire AthleteShare platform solo — the mobile app, the trading
+            engine, the pricing algorithm, and the EU compliance layer — in 6 weeks.
+            He&apos;s a sports fan who was frustrated that deep football knowledge had no
+            financial home. AthleteShare is the platform he always wanted to exist.
+          </p>
+        </div>
+      </section>
+
       {/* ── Waitlist perks ─────────────────────────────────────────── */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 py-24">
         <div className="max-w-xl mb-14">
@@ -327,7 +354,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-8 py-16">
           <div className="grid sm:grid-cols-3 gap-8 text-center">
             {[
-              { label: 'EU Regulated', sub: 'Pursuing MiFID II licence' },
+              { label: 'EU Regulated', sub: 'EMTA Game of Skill Licence (Estonia)' },
               { label: 'GDPR Compliant', sub: 'Registered in Estonia' },
               { label: 'Segregated Funds', sub: 'Your money, your account' },
             ].map((t) => (
@@ -392,9 +419,12 @@ export default async function Home() {
               <p className="text-[11px] font-mono text-white/25">© {new Date().getFullYear()} AthleteShare OÜ · Registered in Estonia</p>
             </div>
             <div className="flex items-center gap-6 text-[11px] font-mono text-white/30">
-              <a href="mailto:hello@athleteshare.io" className="hover:text-white/60 transition-colors">hello@athleteshare.io</a>
+              <a href="mailto:hello@athleteshare.app" className="hover:text-white/60 transition-colors">hello@athleteshare.app</a>
               <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-white/60 transition-colors">Terms</Link>
+              <a href="https://twitter.com/athleteshare" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Twitter / X</a>
+              <a href="https://instagram.com/athleteshare" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Instagram</a>
+              <a href="https://tiktok.com/@athleteshare" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">TikTok</a>
             </div>
           </div>
           <p className="mt-8 text-[10px] font-mono text-white/15 max-w-2xl leading-relaxed">

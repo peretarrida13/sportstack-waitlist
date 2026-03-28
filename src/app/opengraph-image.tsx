@@ -19,12 +19,28 @@ export default function OgImage() {
         padding: '60px',
       }}
     >
-      <div style={{ color: '#D4A017', fontSize: 80, fontWeight: 'bold', letterSpacing: '-2px' }}>
+      <div style={{ color: '#D4A017', fontSize: 80, fontWeight: 'bold', letterSpacing: '-3px' }}>
         ATHLETESHARE
       </div>
-      <div style={{ color: '#FFFFFF', fontSize: 34, marginTop: 24 }}>Trade Athlete Shares</div>
-      <div style={{ color: '#94A3B8', fontSize: 24, marginTop: 16 }}>EU Regulated · Free Beta Q4 2026</div>
-      <div style={{ color: '#64748B', fontSize: 20, marginTop: 48 }}>athleteshare.app</div>
+      <div style={{ color: '#FFFFFF', fontSize: 34, marginTop: 24 }}>
+        Trade Athlete Shares
+      </div>
+      <div style={{ color: '#94A3B8', fontSize: 22, marginTop: 16 }}>
+        EU Regulated · Performance-Driven Prices · Free Beta Q4 2026
+      </div>
+      <div
+        style={{
+          marginTop: 48,
+          padding: '12px 32px',
+          background: '#D4A017',
+          color: '#050D18',
+          borderRadius: 8,
+          fontSize: 20,
+          fontWeight: 'bold',
+        }}
+      >
+        athleteshare.app
+      </div>
     </div>
   )
 }

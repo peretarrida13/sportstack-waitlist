@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'Buy and sell virtual shares in footballers and basketball players. Prices move with real match performance. EU-regulated, free beta launching Q4 2026. Join the waitlist.',
   keywords:
-    'athlete shares, sports trading platform, buy athlete shares, football stock market, EU regulated sports platform, virtual athlete trading, fantasy sports investing',
+    'athlete shares, sports trading platform, buy athlete shares, football stock market, EU regulated sports platform, virtual athlete trading, fantasy sports investing, Sorare alternative',
   authors: [{ name: 'AthleteShare OÜ' }],
   metadataBase: new URL('https://athleteshare.app'),
   alternates: { canonical: 'https://athleteshare.app' },
@@ -75,7 +75,15 @@ const structuredData = {
           name: 'Is AthleteShare gambling?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No. AthleteShare is a regulated financial trading platform where shares are priced by verified athlete performance data. You buy and sell shares like a stock market, not bets.',
+            text: 'No. AthleteShare is regulated as a Game of Skill. Share prices are determined entirely by verified athlete performance statistics — goals, assists, match ratings. There is no luck element.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do athlete share prices move?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Prices update after every match using official stats through a 4-layer algorithm. Goals, assists, and match ratings feed into a performance score, which is then adjusted by a competition multiplier and capped at +40% / -25% per match.',
           },
         },
         {
@@ -84,14 +92,6 @@ const structuredData = {
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'We are targeting Q4 2026. Waitlist members are invited in batches based on their position.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Which sports are available?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'At launch: La Liga, Premier League, Serie A, Ligue 1, Bundesliga, and the NBA.',
           },
         },
       ],
