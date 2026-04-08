@@ -1,5 +1,26 @@
 import type { Metadata } from 'next'
+import { Bebas_Neue, DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
+
+const bebasNeue = Bebas_Neue({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
+const dmMono = DM_Mono({
+  weight: ['400', '500'],
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'AthleteShare — Trade Athlete Shares | EU Regulated',
@@ -106,7 +127,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="bg-navy-950 text-white antialiased" style={{ fontFamily: 'var(--font-body)' }}>
+      <body className={`${bebasNeue.variable} ${dmSans.variable} ${dmMono.variable} bg-navy-950 text-white antialiased`} style={{ fontFamily: 'var(--font-body)' }}>
         {children}
       </body>
     </html>
