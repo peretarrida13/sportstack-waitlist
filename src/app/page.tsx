@@ -369,7 +369,7 @@ export default async function Home() {
 
       {/* ── CTA ────────────────────────────────────────────────────── */}
       <section id="join" className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 py-24">
-        <div className="glass max-w-lg mx-auto p-10 text-center">
+        <div className="glass max-w-lg mx-auto p-6 sm:p-10 text-center">
           <p className="text-xs font-mono uppercase tracking-widest mb-4" style={{ color: 'var(--gold)' }}>
             Join the waitlist
           </p>
@@ -418,7 +418,7 @@ export default async function Home() {
               </div>
               <p className="text-[11px] font-mono text-white/25">© {new Date().getFullYear()} AthleteShare OÜ · Registered in Estonia</p>
             </div>
-            <div className="flex items-center gap-6 text-[11px] font-mono text-white/30">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-mono text-white/30">
               <a href="mailto:hello@athleteshare.app" className="hover:text-white/60 transition-colors">hello@athleteshare.app</a>
               <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-white/60 transition-colors">Terms</Link>

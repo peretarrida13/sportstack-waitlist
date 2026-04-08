@@ -16,7 +16,7 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-4 sm:px-8 flex items-center justify-between h-14">
         <div className="flex items-center gap-2">
           <img src="/athleteshare-logo.png" alt="AthleteShare" className="h-8 w-auto" />
-          <span className="text-sm font-black tracking-widest text-white" style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.12em' }}>
+          <span className="hidden sm:block text-sm font-black tracking-widest text-white" style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.12em' }}>
             ATHLETESHARE
           </span>
         </div>

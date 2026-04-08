@@ -26,6 +26,32 @@ const BASE_ATHLETES: Athlete[] = [
   { id: 'jokic',     name: 'N. Jokić',    club: 'Denver',       sport: 'BASKETBALL', league: 'NBA',            price:  95.20, change:  1.9, history: [ 89, 91, 92, 93, 92, 94, 93, 95, 95, 95] },
 ]
 
+interface ApiAthlete {
+  id: string
+  name: string
+  shortName: string
+  team: string
+  sport: string
+  league: string
+  price: number
+  priceChangePercent24h: number
+}
+
+function mapApiToLocal(a: ApiAthlete): Athlete {
+  const price = Number(a.price)
+  const change = Number(a.priceChangePercent24h ?? 0)
+  return {
+    id: a.id,
+    name: a.shortName || a.name,
+    club: a.team,
+    sport: (a.sport === 'BASKETBALL' ? 'BASKETBALL' : 'FOOTBALL') as Sport,
+    league: a.league,
+    price,
+    change,
+    history: Array(10).fill(price),
+  }
+}
+
 function Sparkline({ history, change }: { history: number[]; change: number }) {
   const W = 64, H = 24
   const min = Math.min(...history)
@@ -62,6 +88,21 @@ export default function MarketTable({ compact = false }: MarketTableProps) {
   const prevRef = useRef<Record<string, number>>(
     Object.fromEntries(BASE_ATHLETES.map((a) => [a.id, a.price]))
   )
+
+  // Seed with real prices from the backend on mount; fall back to BASE_ATHLETES silently
+  useEffect(() => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    if (!apiUrl) return
+    fetch(`${apiUrl}/api/v1/athletes`)
+      .then((r) => r.ok ? r.json() : null)
+      .then((data: ApiAthlete[] | null) => {
+        if (!data || data.length === 0) return
+        const mapped = data.map(mapApiToLocal)
+        setAthletes(mapped)
+        prevRef.current = Object.fromEntries(mapped.map((a) => [a.id, a.price]))
+      })
+      .catch(() => { /* keep BASE_ATHLETES */ })
+  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -119,11 +160,11 @@ export default function MarketTable({ compact = false }: MarketTableProps) {
 
       {/* Column headers — full mode only */}
       {!compact && (
-        <div className="grid grid-cols-[1fr_auto_auto_auto] gap-x-4 px-4 py-2 border-b border-white/[0.04]">
+        <div className="grid grid-cols-[1fr_auto_auto] sm:grid-cols-[1fr_auto_auto_auto] gap-x-4 px-4 py-2 border-b border-white/[0.04]">
           <span className="text-[10px] font-mono text-white/25 uppercase">Athlete</span>
           <span className="text-[10px] font-mono text-white/25 uppercase text-right w-16">Price</span>
           <span className="text-[10px] font-mono text-white/25 uppercase text-right w-14">24h</span>
-          <span className="text-[10px] font-mono text-white/25 uppercase text-right w-16">7d chart</span>
+          <span className="hidden sm:block text-[10px] font-mono text-white/25 uppercase text-right w-16">7d chart</span>
         </div>
       )}
 
@@ -139,7 +180,7 @@ export default function MarketTable({ compact = false }: MarketTableProps) {
             className={`grid gap-x-4 px-4 border-b border-white/[0.04] last:border-0 items-center ${
               compact
                 ? 'grid-cols-[1fr_auto_auto] py-2.5'
-                : 'grid-cols-[1fr_auto_auto_auto] py-3'
+                : 'grid-cols-[1fr_auto_auto] sm:grid-cols-[1fr_auto_auto_auto] py-3'
             }`}
           >
             {/* Name + club/league */}
@@ -165,9 +206,9 @@ export default function MarketTable({ compact = false }: MarketTableProps) {
               {changePositive ? '+' : ''}{a.change.toFixed(2)}%
             </span>
 
-            {/* Sparkline — full mode only */}
+            {/* Sparkline — full mode only, hidden on mobile */}
             {!compact && (
-              <div className="w-16 flex justify-end">
+              <div className="hidden sm:flex w-16 justify-end">
                 <Sparkline history={a.history} change={a.change} />
               </div>
             )}

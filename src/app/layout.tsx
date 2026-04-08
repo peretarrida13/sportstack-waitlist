@@ -16,7 +16,6 @@ export const metadata: Metadata = {
       'Your sports knowledge earns real money. Buy shares in Mbappé, Haaland, LeBron. Prices move with every match. Free beta Q4 2026.',
     url: 'https://athleteshare.app',
     siteName: 'AthleteShare',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'AthleteShare — Trade Athlete Shares' }],
     locale: 'en_EU',
     type: 'website',
   },
@@ -25,7 +24,6 @@ export const metadata: Metadata = {
     title: 'AthleteShare — Trade Athlete Shares | EU Regulated',
     description:
       'Buy shares in footballers. Prices move with real match stats. EU regulated. Free beta Q4 2026.',
-    images: ['/og-image.png'],
   },
   robots: {
     index: true,

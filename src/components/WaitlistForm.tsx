@@ -27,7 +27,7 @@ export default function WaitlistForm({ variant, queueCount }: WaitlistFormProps)
     setErrorIsDuplicate(false)
     setLoading(true)
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/waitlist`, {
+      const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
