@@ -1,7 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ensureTable, query } from '@/lib/db'
 
+// In-memory rate limiter: 10 signups per IP per hour
+const signupAttempts = new Map<string, number[]>()
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const windowMs = 60 * 60 * 1000 // 1 hour
+  const limit = 10
+  const timestamps = (signupAttempts.get(ip) ?? []).filter(t => now - t < windowMs)
+  if (timestamps.length >= limit) return true
+  timestamps.push(now)
+  signupAttempts.set(ip, timestamps)
+  return false
+}
+
 export async function POST(req: NextRequest) {
+  const ip =
+    req.headers.get('x-forwarded-for')?.split(',')[0].trim() ??
+    req.headers.get('x-real-ip') ??
+    'unknown'
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json({ message: 'Too many requests. Please try again later.' }, { status: 429 })
+  }
   try {
     const { email, firstName, sportPreference, otherSport } = await req.json()
 
