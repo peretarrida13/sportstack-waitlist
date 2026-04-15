@@ -501,7 +501,7 @@ export default async function Home() {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-mono text-white/30">
-              <a href="mailto:hello@athleteshare.app" className="hover:text-white/60 transition-colors">hello@athleteshare.app</a>
+              <a href="mailto:support@athleteshare.app" className="hover:text-white/60 transition-colors">support@athleteshare.app</a>
               <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-white/60 transition-colors">Terms</Link>
               <a href="https://x.com/athleteshareapp" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">Twitter / X</a>
