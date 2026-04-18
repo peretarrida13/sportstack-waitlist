@@ -36,6 +36,9 @@ export async function getAdminStats(): Promise<AdminStats> {
     headers: apiHeaders(),
     cache: 'no-store',
   })
-  if (!res.ok) throw new Error('Failed to fetch admin stats')
+  if (!res.ok) {
+    const body = await res.text().catch(() => '(no body)')
+    throw new Error(`Admin stats failed: ${res.status} ${res.statusText} — ${body}`)
+  }
   return res.json()
 }
